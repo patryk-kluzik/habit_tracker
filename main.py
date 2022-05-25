@@ -43,10 +43,10 @@ run once to create the graph
 POST_PIXEL_ENDPOINT = f'{PIXELA_ENDPOINT}/{USERNAME}/graphs/{GRAPH_ID}'
 today_date_formatted = datetime.datetime.today().strftime("%Y%m%d")
 
-pixel_params = {
-    "date": today_date_formatted,
-    "quantity": input("How many laps did you swim today?")
-}
+# pixel_params = {
+#     "date": today_date_formatted,
+#     "quantity": input("How many laps did you swim today?")
+# }
 
 UPDATE_PIXEL_ENDPOINT = f'{POST_PIXEL_ENDPOINT}/{today_date_formatted}'
 
@@ -70,3 +70,13 @@ run to delete pixel to the graph
 """
 # response = requests.delete(url=UPDATE_PIXEL_ENDPOINT, headers=headers)
 # print(response.text)
+
+"""
+View the graph
+"""
+
+VIEW_PIXEL_ENDPOINT = f'http://pixe.la/v1/users/{USERNAME}/graphs/{GRAPH_ID}.html'
+
+import webbrowser
+
+webbrowser.open(url=VIEW_PIXEL_ENDPOINT)
